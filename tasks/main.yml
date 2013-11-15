@@ -1,0 +1,31 @@
+- name: download
+  get_url: >
+    url={{ direnv.tgz }}
+    sha256sum={{ direnv.tgz_sha256 }}
+    dest=/tmp/direnv.tar.gz
+
+- name: create temporary dir
+  file: >
+    path=/tmp/direnv
+    mode=0755
+    state=directory
+
+- name: extract
+  command: >
+    /bin/tar --strip-components=1 -xzf /tmp/direnv.tar.gz
+    chdir=/tmp/direnv
+    creates=/tmp/direnv/Makefile
+
+- name: make install
+  sudo: true
+  command: >
+    /usr/bin/make install
+    chdir=/tmp/direnv
+    creates=/usr/local/bin/direnv
+
+- name: install profile hook
+  sudo: true
+  copy: >
+    src=profile.sh
+    dest=/etc/profile.d/direnv.sh
+    mode=0644
