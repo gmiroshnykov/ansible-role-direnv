@@ -1,3 +1,3 @@
 direnv:
-  tgz: https://github.com/pwaller/direnv/archive/48429cc66ee41e2f9570ba74e8aa2f78e4abaac0.tar.gz
-  tgz_sha256: c16820aedef1c0a7be6a0174cbc5dde6639a0517e0f072616adcfd419965bbe6
+  bin_url: http://zimbatm.s3.amazonaws.com/direnv/direnv2.3.0.linux-amd64
+  bin_sha256: 3326887c2a6f863d744c8afb950804e53f7a91cca19cc64b62d4e08a49efd15d
