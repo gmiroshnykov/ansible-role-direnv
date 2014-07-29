@@ -3,7 +3,7 @@ galaxy_info:
   author: George Miroshnykov
   description: install direnv (http://direnv.net/)
   min_ansible_version: 1.4
-  version: 0.2.0
+  version: 2.4.0
   platforms:
   - name: Ubuntu
     versions:
