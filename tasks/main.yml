@@ -11,7 +11,7 @@
 - name: install profile hook
   sudo: true
   copy: >
-    src=profile.sh
+    content='eval "$(direnv hook bash)"'
     dest=/etc/profile.d/direnv.sh
     owner=root
     group=root
