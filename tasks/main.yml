@@ -1,5 +1,4 @@
 - name: download
-  sudo: true
   get_url: >
     url={{ direnv.bin_url }}
     sha256sum={{ direnv.bin_sha256 }}
@@ -7,9 +6,15 @@
     owner=root
     group=root
     mode=0755
+  when: direnv.install_from_sources
+
+- name: install direnv package
+  package:
+    name: direnv
+    state: present
+  when: not direnv.install_from_sources
 
 - name: install profile hook
-  sudo: true
   copy: >
     content='eval "$(direnv hook bash)"'
     dest=/etc/profile.d/direnv.sh
