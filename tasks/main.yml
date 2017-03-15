@@ -6,6 +6,13 @@
     owner=root
     group=root
     mode=0755
+  when: direnv.install_from_sources
+
+- name: install direnv package
+  package:
+    name: direnv
+    state: present
+  when: not direnv.install_from_sources
 
 - name: install profile hook
   copy: >
